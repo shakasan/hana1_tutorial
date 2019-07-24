@@ -1,5 +1,7 @@
 # HANA 1 Tutorials
 
+![HANATutorials](hana_tutorials_logo_small.png)
+
 ## Table of contents
 
 - [Getting started](TUTO_01.md)
