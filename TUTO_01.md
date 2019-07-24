@@ -70,7 +70,7 @@ Add the following list :
 
 ![](pics/hana_studio_02.png)
 
-And the, install the `SAP Cloud Platform Tools for Connecting to SAP HANA Systems` plugin.
+And then, install the `SAP Cloud Platform Tools for Connecting to SAP HANA Systems` plugin.
 
 ![](pics/hana_studio_03.png)
 
