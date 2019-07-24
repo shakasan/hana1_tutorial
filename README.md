@@ -7,7 +7,7 @@
 - [Getting started](TUTO_01.md)
     - create SCP Trial Account
     - setup your development environment
-    - setup the intial landscape
+    - setup the initial landscape
 - [Let's start the development](TUTO_02.md)
     - create a package structure
     - create a schema
