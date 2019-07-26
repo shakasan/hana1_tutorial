@@ -13,6 +13,10 @@
     - create a schema
     - create/assign package/schema related roles
 
+## Remarks
+
+- Delivery Units are provided in every guide. However, about roles and permissions, I **highly recommand** to read and check every roles **BEFORE** to use them in a production system !!
+
 ## Credits
 
 - Author : Francois B Makoto
