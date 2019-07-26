@@ -5,13 +5,13 @@
 ## Table of contents
 
 - [Getting started](TUTO_01.md)
-    - create SCP Trial Account
-    - setup your development environment
-    - setup the initial landscape
+  - create SCP Trial Account
+  - setup your development environment
+  - setup the initial landscape
 - [Let's start the development](TUTO_02.md)
-    - create a package structure
-    - create a schema
-    - create/assign package/schema related roles
+  - create a package structure
+  - create a schema
+  - create/assign package/schema related roles
 - [External tutorials/documentation](REFERENCES.md)
 
 ## Remarks
