@@ -12,6 +12,7 @@
     - create a package structure
     - create a schema
     - create/assign package/schema related roles
+- [External tutorials/documentation](REFERENCES.md)
 
 ## Remarks
 
