@@ -16,7 +16,7 @@ Let's call it MyFirstPackage.
 
 Create a package named `MyFirstPackage` inside `MyHANA`
 
-![](pics/myfirstpackage_apercu_01.png)
+![apercu](pics/myfirstpackage_apercu_01.png)
 
 ### 1.1.2. Roles
 
@@ -28,7 +28,7 @@ In this guide, we will always segregate roles in 3 categories : `admin`, `develo
 
 So let's create a specific package named `roles` inside `MyFirstPackage`
 
-![](pics/myfirstpackage_apercu_02.png)
+![apercu](pics/myfirstpackage_apercu_02.png)
 
 #### 1.1.2.2. Define the roles
 
@@ -40,13 +40,13 @@ Create 3 files (in text mode) named inside the package `roles`:
 - `dev.hdbrole`
 - `user.hdbrole`
 
-![](pics/myfirstpackage_apercu_03.png)
+![apercu](pics/myfirstpackage_apercu_03.png)
 
 ##### 1.1.2.2.1. Admin role
 
 Copy/Paste this code to the file `admin.hdbrole`
 
-```
+```js
 role MyHANA.MyFirstPackage.roles::admin
 {
 package MyHANA.MyFirstPackage: REPO.READ, REPO.ACTIVATE_NATIVE_OBJECTS, REPO.MAINTAIN_NATIVE_PACKAGES, REPO.ACTIVATE_IMPORTED_OBJECTS, REPO.MAINTAIN_IMPORTED_PACKAGES;
@@ -57,7 +57,7 @@ package MyHANA.MyFirstPackage: REPO.READ, REPO.ACTIVATE_NATIVE_OBJECTS, REPO.MAI
 
 Copy/Paste this code to the file `dev.hdbrole`
 
-```
+```js
 role MyHANA.MyFirstPackage.roles::dev
 {
 package MyHANA.MyFirstPackage: REPO.READ, REPO.EDIT_NATIVE_OBJECTS, REPO.ACTIVATE_NATIVE_OBJECTS, REPO.MAINTAIN_NATIVE_PACKAGES, REPO.EDIT_IMPORTED_OBJECTS, REPO.ACTIVATE_IMPORTED_OBJECTS, REPO.MAINTAIN_IMPORTED_PACKAGES;
@@ -68,7 +68,7 @@ package MyHANA.MyFirstPackage: REPO.READ, REPO.EDIT_NATIVE_OBJECTS, REPO.ACTIVAT
 
 Copy/Paste this code to the file `user.hdbrole`
 
-```
+```js
 role MyHANA.MyFirstPackage.roles::user
 {
 package MyHANA.MyFirstPackage: REPO.READ;
@@ -81,7 +81,7 @@ The roles are now defined in HANA, but we still need to assign them to users.
 
 In HANA Studio, with the `SYSTEM` user, assign the role `MyHANA.MyFirstPackage.roles::admin` to your SHINE User.
 
-![](pics/myfirstpackage_roles_01.png)
+![roles](pics/myfirstpackage_roles_01.png)
 
 ## 1.2. Create schema
 
@@ -93,7 +93,7 @@ First, we will create a specific package for all datasources related artifacts :
 
 So let's create a package named `datasources` in `MyFirstPackage`
 
-![](pics/myfirstpackage_apercu_04.png)
+![apercu](pics/myfirstpackage_apercu_04.png)
 
 ### 1.2.2. Schema creation
 
@@ -101,11 +101,11 @@ We will now create a hdbschema artifact in order to create a schema in HANA.
 
 Create a new file named `myfirstschema.hdbschema` in `datasources` packages
 
-![](pics/myfirstpackage_apercu_05.png)
+![apercu](pics/myfirstpackage_apercu_05.png)
 
 And copy/paste this in this file
 
-```
+```js
 schema_name="myfirstschema";
 ```
 
@@ -115,7 +115,7 @@ We now need to add roles for the schema too.
 
 If you check on HANA Studio, you will notice you can't access the newly created schema.
 
-![](pics/myfirstschema_schema_creation_01.png)
+![schema](pics/myfirstschema_schema_creation_01.png)
 
 Again, we will follow the same structure, with 3 kind of users : `admin`, `developer` and `user`
 
@@ -131,7 +131,7 @@ Create 3 files (in text mode) named inside the package `datasources`:
 
 Copy/Paste this code to the file `admin.hdbrole`
 
-```
+```js
 role MyHANA.MyFirstPackage.datasources::admin
 {
 catalog schema "myfirstschema": SELECT, CREATE ANY, CREATE TEMPORARY TABLE, ALTER, DROP, EXECUTE, INSERT, UPDATE, DELETE, INDEX, TRIGGER, DEBUG, REFERENCES, SELECT METADATA, SELECT CDS METADATA;
@@ -142,7 +142,7 @@ catalog schema "myfirstschema": SELECT, CREATE ANY, CREATE TEMPORARY TABLE, ALTE
 
 Copy/Paste this code to the file `dev.hdbrole`
 
-```
+```js
 role MyHANA.MyFirstPackage.datasources::dev
 {
 catalog schema "myfirstschema": SELECT, CREATE ANY, CREATE TEMPORARY TABLE, ALTER, EXECUTE, INSERT, UPDATE, DELETE, INDEX, TRIGGER, DEBUG, REFERENCES, SELECT METADATA, SELECT CDS METADATA;
@@ -153,7 +153,7 @@ catalog schema "myfirstschema": SELECT, CREATE ANY, CREATE TEMPORARY TABLE, ALTE
 
 Copy/Paste this code to the file `user.hdbrole`
 
-```
+```js
 role MyHANA.MyFirstPackage.datasources::user
 {
 catalog schema "myfirstschema": SELECT, SELECT METADATA, SELECT CDS METADATA;
@@ -174,7 +174,7 @@ In the package MyFirstPackage.roles, open the file `admin.hdbrole`
 
 And extend the role in the header like this :
 
-```
+```js
 role MyHANA.MyFirstPackage.roles::admin extends role
     MyHANA.MyFirstPackage.datasources::admin
 {
@@ -188,7 +188,7 @@ In the package MyFirstPackage.roles, open the file `dev.hdbrole`
 
 And extend the role in the header like this :
 
-```
+```js
 role MyHANA.MyFirstPackage.roles::dev extends role
     MyHANA.MyFirstPackage.datasources::dev
 {
@@ -202,7 +202,7 @@ In the package MyFirstPackage.roles, open the file `user.hdbrole`
 
 And extend the role in the header like this :
 
-```
+```js
 role MyHANA.MyFirstPackage.roles::user extends role
     MyHANA.MyFirstPackage.datasources::user
 {
@@ -218,4 +218,4 @@ Go back in HANA Studio with you SHINE User and refresh the catalog area.
 
 If everything is fine, you should see this :
 
-![](pics/myfirstschema_schema_creation_02.png)
+![schema](pics/myfirstschema_schema_creation_02.png)
