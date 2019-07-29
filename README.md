@@ -12,6 +12,7 @@
   - create a package structure
   - create a schema
   - create/assign package/schema related roles
+- [SHINE Introduction](TUTO_03.md)
 - [External tutorials/documentation](REFERENCES.md)
 
 ## Remarks
