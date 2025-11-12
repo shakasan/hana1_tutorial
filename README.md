@@ -2,7 +2,7 @@
 
 ![HANATutorials](hana_tutorials_logo_small.png)
 
-> **Remark** : this tutorial is rather outdated
+> **Remark** This tutorial is rather outdated
 
 ## Table of contents
 
